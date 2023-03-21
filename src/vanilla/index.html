@@ -9,52 +9,23 @@
   </head>
   <body>
     <div class="home">
-      <h1 class="home__title">
-        Welcome to <br /><a
-          class="home__title__link"
-          href="https://developers.line.biz/en/docs/liff/overview/"
-          >LIFF Starter!</a
-        >
-      </h1>
-      <div class="home__badges">
-        <span class="home__badges__badge badge--primary"> LIFF Starter </span>
-        <span class="home__badges__badge badge--secondary"> vanilla </span>
-        <span class="home__badges__badge badge--tertiary"> 0.1.0 </span>
-        <a
-          href="https://github.com/line/line-liff-v2-starter"
-          target="_blank"
-          rel="noreferrer"
-          class="home__badges__badge badge--secondary"
-        >
-          GitHub
-        </a>
-      </div>
-      <div class="home__buttons">
-        <a
-          href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--primary"
-        >
-          LIFF Documentation
-        </a>
-        <a
-          href="https://liff-playground.netlify.app/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--tertiary"
-        >
-          LIFF Playground
-        </a>
-        <a
-          href="https://developers.line.biz/console/"
-          target="_blank"
-          rel="noreferrer"
-          class="home__buttons__button button--secondary"
-        >
-          LINE Developers Console
-        </a>
-      </div>
+      <!-- A DATA PRIVACY AGREEMENT PAGE -->
+      <div class="home__privacy">
+        <h1 class="home__privacy__title">資料利用條款</h1>
+        <p class="home__privacy__text">
+          本人同意，本人的個人資料，包括但不限於姓名、LINE ID、LINE 名稱，將由本人提供給骨肉癌協會，以便骨肉癌協會提供醫師相關資訊，以及後續醫師LINE官方帳號之使用。
+        </p>
+        
+        <!-- fill automatically disable change -->
+        <input type="text" id="line_id" hidden />
+        <div id="line_name_col" hidden>LINE: <input type="text" id="line_name" disabled /></div>
+        <!-- hidden text input columns: real_name, line_id, line_name -->
+        <div id="real_name_col" hidden>姓名: <input type="text" id="real_name" /></div>
+        <!-- checkbox and submit button -->
+        <br></bt><input type="checkbox" id="agree" /> 我同意上述資料利用條款
+        <p><button class="home__privacy__button" id="agree-button">
+          Submit
+        </button>
     </div>
   </body>
 </html>
