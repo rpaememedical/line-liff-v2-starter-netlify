@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     liff.closeWindow()
                 })
                 .catch((err) => {
-                    console.log('error', err)
+                    alert('error: ', err)
+                    liff.closeWindow()
                 })
             })
 
