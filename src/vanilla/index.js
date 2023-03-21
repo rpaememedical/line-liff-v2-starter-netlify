@@ -19,9 +19,10 @@ document.addEventListener("DOMContentLoaded", function() {
             submit.addEventListener("click", function() {
                 const line_id = document.getElementById("line_id").value
                 const line_name = document.getElementById("line_name").value
+                const email = document.getElementById("email").value
                 const real_name = document.getElementById("real_name").value
                 const agree = document.getElementById("agree").checked
-                const message = `/submit_privacy_form\nID: ${line_id}\nLINE: ${line_name}\n姓名: ${real_name}\n同意: ${agree}`
+                const message = `/submit_privacy_form\nID: ${line_id}\nLINE: ${line_name}\nEmail: ${email}\n姓名: ${real_name}\n同意: ${agree}`
                 liff.sendMessages([{ type: 'text', text: message }])
                 .then(() => {
                     console.log('message sent')
