@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .init({ liffId: process.env.LIFF_ID })
     .then(() => {
         console.log("Success! you can do something with LIFF API here.")
+        if(!liff.isInClient()) {
+            alert("請使用手機 LINE app 操作")
+            liff.closeWindow()
+        }
         if(!liff.isLoggedIn()) {
             liff.login()
         } else {
@@ -24,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     liff.closeWindow()
                 })
                 .catch((err) => {
-                    alert("請使用手機 LINE app 操作")
+                    console.log('error', err)
                     liff.closeWindow()
                 })
             })
