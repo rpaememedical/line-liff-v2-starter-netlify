@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 const line_id = document.getElementById("line_id").value
                 const line_name = document.getElementById("line_name").value
                 const real_name = document.getElementById("real_name").value
-                const message = `${line_name}-${real_name}-${line_id}`
+                const agree = document.getElementById("agree").checked
+                const message = `${line_name}-${real_name}-${line_id}-${agree}`
                 liff.sendMessages([{ type: 'text', text: message }])
                 .then(() => {
                     console.log('message sent')
