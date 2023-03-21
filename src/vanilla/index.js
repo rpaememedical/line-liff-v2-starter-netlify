@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     liff.closeWindow()
                 })
                 .catch((err) => {
-                    alert('error: ', err)
+                    alert("請使用手機 LINE app 操作")
                     liff.closeWindow()
                 })
             })
