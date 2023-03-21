@@ -3,7 +3,7 @@ import liff from '@line/liff'
 
 function getProfile() {
     // mock data
-    return {"displayName":"John Doe","userId":"U12345678901234567890123456789012","pictureUrl":"https://example.com/abcdefghijklmn","statusMessage":"Hello, LINE!"}
+    return liff.getProfile()
 }
 
 document.addEventListener("DOMContentLoaded", function() {
