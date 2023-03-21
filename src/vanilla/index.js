@@ -10,6 +10,22 @@ document.addEventListener("DOMContentLoaded", function() {
             liff.login()
         } else {
             console.log("Already logged in.")
+            // send message back to line when click submit button
+            const submit = document.getElementById("submit")
+            submit.addEventListener("click", function() {
+                const line_id = document.getElementById("line_id").value
+                const line_name = document.getElementById("line_name").value
+                const real_name = document.getElementById("real_name").value
+                const message = `${line_name}-${real_name}-${line_id}`
+                liff.sendMessages([{ type: 'text', text: message }])
+                .then(() => {
+                    console.log('message sent')
+                })
+                .catch((err) => {
+                    console.log('error', err)
+                })
+            })
+
             const profile = liff.getProfile().then(profile => {
                 const real_name = document.getElementById("real_name")
                 const real_name_col = document.getElementById("real_name_col")
@@ -23,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 line_name_col.attributes.removeNamedItem("hidden")  
             })
         }
+
         
     })
     .catch((error) => {
