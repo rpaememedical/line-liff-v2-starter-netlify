@@ -29,18 +29,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
             })
 
-            const profile = liff.getProfile().then(profile => {
-                const real_name = document.getElementById("real_name")
-                const real_name_col = document.getElementById("real_name_col")
-                real_name_col.attributes.removeNamedItem("hidden")
-                const line_id = document.getElementById("line_id")
-                // set value and cancel hidden attribute
-                line_id.setAttribute("value", profile.userId)
-                const line_name = document.getElementById("line_name")
-                line_name.setAttribute("value", profile.displayName)
-                const line_name_col = document.getElementById("line_name_col")
-                line_name_col.attributes.removeNamedItem("hidden")  
-            })
+            const profile = liff.getDecodedIDToken()
+
+            const real_name = document.getElementById("real_name")
+            const real_name_col = document.getElementById("real_name_col")
+            real_name_col.attributes.removeNamedItem("hidden")
+
+            const line_id = document.getElementById("line_id")
+            line_id.setAttribute("value", profile.sub)
+
+            const line_name = document.getElementById("line_name")
+            line_name.setAttribute("value", profile.name)
+            const line_name_col = document.getElementById("line_name_col")
+            line_name_col.attributes.removeNamedItem("hidden")
+
+            const email = document.getElementById("email")
+            email.setAttribute("value", profile.email)
+            const email_col = document.getElementById("email_col")
+            email_col.attributes.removeNamedItem("hidden")
         }
 
         
