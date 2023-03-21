@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Success! you can do something with LIFF API here.")
         if(!liff.isInClient()) {
             alert("請使用手機 LINE app 操作")
-            liff.closeWindow()
+            return
         }
         if(!liff.isLoggedIn()) {
             liff.login()
