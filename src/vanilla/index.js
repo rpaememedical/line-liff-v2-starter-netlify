@@ -1,6 +1,30 @@
 import './index.css';
 import liff from '@line/liff'
 
+function submitForm(message, agree) {
+    const line_id = document.getElementById("line_id").value
+    const line_name = document.getElementById("line_name").value
+    const real_name = document.getElementById("real_name").value
+    const agree = document.getElementById("agree").checked
+    const confrim_message = message
+    // 彈出確認框
+    const confirmation = confirm(message);
+    const chat_text = `/服務條款表單\nline_user_id: ${line_id}\nline_displayname: ${line_name}\nreal_name: ${real_name}\ntos_signed: ${agree}`
+    
+    // 如果使用者確認，則提交表單
+    if (confirmation == true) {
+        liff.sendMessages([{ type: 'text', text: chat_text }])
+        .then(() => {
+            console.log('message sent')
+            liff.closeWindow()
+        })
+        .catch((err) => {
+            console.log('error', err)
+            liff.closeWindow()
+        })
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   liff
     .init({ liffId: process.env.LIFF_ID })
@@ -17,28 +41,15 @@ document.addEventListener("DOMContentLoaded", function() {
             // send message back to line when click submit button
             const submit = document.getElementById("submit")
             submit.addEventListener("click", function() {
-                const line_id = document.getElementById("line_id").value
-                const line_name = document.getElementById("line_name").value
-                const email = document.getElementById("email").value
                 const real_name = document.getElementById("real_name").value
-                const agree = document.getElementById("agree").checked
-                const message = `/submit_privacy_form\nID: ${line_id}\nLINE: ${line_name}\nEmail: ${email}\n姓名: ${real_name}\n同意: ${agree}`
-                // 彈出確認框
-                const confirmation = confirm("請確認以下資訊\n\n姓名：" + name + "\n電子郵件：" + email + "\n訊息：" + message);
-                
-                // 如果使用者確認，則提交表單
-                if (confirmation == true) {
-                    liff.sendMessages([{ type: 'text', text: message }])
-                    .then(() => {
-                        console.log('message sent')
-                        liff.closeWindow()
-                    })
-                    .catch((err) => {
-                        console.log('error', err)
-                        liff.closeWindow()
-                    })
-                }
+                submitForm(`確定「病友的全名」為「${real_name}」？`, true)
             })
+
+            const reset = document.getElementById("reset")
+            reset.addEventListener("click", function() {
+                submitForm("確定「不同意」服務條款？", false)
+            })
+
 
             const profile = liff.getDecodedIDToken()
 
