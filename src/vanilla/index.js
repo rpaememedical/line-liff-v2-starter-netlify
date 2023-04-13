@@ -23,15 +23,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 const real_name = document.getElementById("real_name").value
                 const agree = document.getElementById("agree").checked
                 const message = `/submit_privacy_form\nID: ${line_id}\nLINE: ${line_name}\nEmail: ${email}\n姓名: ${real_name}\n同意: ${agree}`
-                liff.sendMessages([{ type: 'text', text: message }])
-                .then(() => {
-                    console.log('message sent')
-                    liff.closeWindow()
-                })
-                .catch((err) => {
-                    console.log('error', err)
-                    liff.closeWindow()
-                })
+                // 彈出確認框
+                const confirmation = confirm("請確認以下資訊\n\n姓名：" + name + "\n電子郵件：" + email + "\n訊息：" + message);
+                
+                // 如果使用者確認，則提交表單
+                if (confirmation == true) {
+                    liff.sendMessages([{ type: 'text', text: message }])
+                    .then(() => {
+                        console.log('message sent')
+                        liff.closeWindow()
+                    })
+                    .catch((err) => {
+                        console.log('error', err)
+                        liff.closeWindow()
+                    })
+                }
             })
 
             const profile = liff.getDecodedIDToken()
