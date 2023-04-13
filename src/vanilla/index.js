@@ -5,7 +5,6 @@ function submitForm(message, agree) {
     const line_id = document.getElementById("line_id").value
     const line_name = document.getElementById("line_name").value
     const real_name = document.getElementById("real_name").value
-    const agree = document.getElementById("agree").checked
     const confrim_message = message
     // 彈出確認框
     const confirmation = confirm(message);
