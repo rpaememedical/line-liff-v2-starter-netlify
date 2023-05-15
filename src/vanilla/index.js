@@ -8,7 +8,7 @@ function submitForm(message, agree) {
     const confrim_message = message
     // 彈出確認框
     const confirmation = confirm(message);
-    const chat_text = `/服務條款表單\nline_user_id: ${line_id}\nline_displayname: ${line_name}\nreal_name: ${real_name}\ntos_signed: ${agree}`
+    const chat_text = `/服務條款表單\nLINE後台ID: ${line_id}\nLINE名稱: ${line_name}\n病友的全名: ${real_name}\n同意/不同意條款: ${agree}`
     
     // 如果使用者確認，則提交表單
     if (confirmation == true) {
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const submit = document.getElementById("submit")
             submit.addEventListener("click", function() {
                 const real_name = document.getElementById("real_name").value
+                if(real_name == "") { return alert("病友的全名不可為空白") }
                 submitForm(`確定「病友的全名」為「${real_name}」？`, true)
             })
 
@@ -63,11 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
             line_name.setAttribute("value", profile.name)
             const line_name_col = document.getElementById("line_name_col")
             line_name_col.attributes.removeNamedItem("hidden")
-
-            const email = document.getElementById("email")
-            email.setAttribute("value", profile.email)
-            const email_col = document.getElementById("email_col")
-            email_col.attributes.removeNamedItem("hidden")
         }
 
         
