@@ -8,7 +8,7 @@ function submitForm(message, agree) {
     const confrim_message = message
     // 彈出確認框
     const confirmation = confirm(message);
-    const chat_text = `/服務條款表單\nLINE後台ID: ${line_id}\nLINE名稱: ${line_name}\n病友的全名: ${real_name}\n同意/不同意條款: ${agree}`
+    const chat_text = `[服務條款表單]\nLINE後台ID: ${line_id}\nLINE名稱: ${line_name}\n病友的全名: ${real_name}\n同意/不同意條款: ${agree}`
     
     // 如果使用者確認，則提交表單
     if (confirmation == true) {
