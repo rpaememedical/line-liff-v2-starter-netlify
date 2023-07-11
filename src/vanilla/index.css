@@ -14,7 +14,7 @@ input {
 
 .home {
   padding: 5rem 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .home__title {
@@ -55,7 +55,7 @@ input {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
 }
