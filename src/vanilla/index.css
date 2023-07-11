@@ -55,7 +55,7 @@ input {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
-  text-align: center;
+  text-align: left;
   white-space: nowrap;
   vertical-align: baseline;
 }
@@ -75,8 +75,8 @@ input {
 
 .home__buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -86,7 +86,7 @@ input {
   cursor: pointer;
   display: inline-block;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   user-select: none;
   border: 1px solid transparent;
