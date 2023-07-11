@@ -31,8 +31,8 @@ input {
 }
 
 .home__badges {
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
