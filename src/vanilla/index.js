@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const submit = document.getElementById("submit")
             submit.addEventListener("click", function() {
                 const real_name = document.getElementById("real_name").value
-                if(real_name == "") { return alert("病友的全名不可為空白") }
+                /*if(real_name == "") { return alert("病友的全名不可為空白") }*/
                 submitForm(`確定「病友的全名」為「${real_name}」？`, true)
             })
 
