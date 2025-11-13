@@ -156,15 +156,18 @@ E. 請求刪除。
 ,最後提醒
 請您在使用本平台前確認您已詳閱並理解以上條款內容,當您點選「同意」並開始使用本服務,即表示您已充分理解並接受以上條款內容,且您的同意具書面表示之效果。如您您於個人資料之使用或平台功能有任何疑問,歡迎與本公司聯繫。
       </p>
-      <!-- 隱藏輸入欄位 -->
+      <!-- fill automatically disable change -->
       <input type="text" id="line_id" hidden />
       <div id="line_name_col" hidden>LINE名稱: <input type="text" id="line_name" disabled /></div>
+      <!-- hidden text input columns: real_name, line_id, line_name -->
       <div id="real_name_col" hidden>病友的全名: <input type="text" id="real_name" /></div>
-      <!-- 按鈕 -->
-      <p>
-        <button class="home__buttons__button button--primary" id="submit" onclick="showConfirmation()">同意</button>
-        <button class="home__buttons__button button--secondary" id="reset" onclick="reset()">不同意</button>
-      </p>
+      <!-- checkbox and submit button -->
+      <p><button class="home__buttons__button button--primary" id="submit" onclick="showConfirmation()">
+        同意
+      </button>
+      <button class="home__buttons__button button--secondary" id="reset" onclick="reset()">
+        不同意
+    </div>
     </div>
     <!-- 隱私權保護政策 Popup -->
     <div id="privacyModal" class="modal">
