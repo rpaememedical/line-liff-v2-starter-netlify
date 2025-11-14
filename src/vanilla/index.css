@@ -17,6 +17,13 @@ input {
   text-align: center;
 }
 
+.home p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
 .home__title {
   line-height: 1.15;
 }
@@ -154,4 +161,11 @@ input {
   .home__buttons {
     flex-direction: column;
   }
+}
+
+.privacy-page p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.8;
 }
