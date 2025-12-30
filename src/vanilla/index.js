@@ -5,10 +5,11 @@ function submitForm(message, agree) {
     const line_id = document.getElementById("line_id").value
     const line_name = document.getElementById("line_name").value
     const real_name = document.getElementById("real_name").value
+    const cellphone = document.getElementById("cellphone").value
     const confrim_message = message
     // 彈出確認框
     const confirmation = confirm(message);
-    const chat_text = `[服務條款表單]\nLINE後台ID: ${line_id}\nLINE名稱: ${line_name}\n病友的全名: ${real_name}\n同意/不同意條款: ${agree}`
+    const chat_text = `[服務條款表單]\nLINE後台ID: ${line_id}\nLINE名稱: ${line_name}\n病友的全名: ${real_name}\n手機號碼: ${cellphone}\n同意/不同意條款: ${agree}`
     
     // 如果使用者確認，則提交表單
     if (confirmation == true) {
@@ -41,8 +42,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const submit = document.getElementById("submit")
             submit.addEventListener("click", function() {
                 const real_name = document.getElementById("real_name").value
+                const cellphone = document.getElementById("cellphone").value
                 /*if(real_name == "") { return alert("病友的全名不可為空白") }*/
-                submitForm(`確定「病友的全名」為「${real_name}」？`, true)
+                submitForm(
+                    `確定「病友的全名」為「${real_name}」？\n確定「病友的手機」為「${cellphone}」？`,
+                    true
+                )
             })
 
             const reset = document.getElementById("reset")
@@ -56,6 +61,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const real_name = document.getElementById("real_name")
             const real_name_col = document.getElementById("real_name_col")
             real_name_col.attributes.removeNamedItem("hidden")
+
+            const cellphone = document.getElementById("cellphone")
+            const cellphone_col = document.getElementById("cellphone_col")
+            cellphone_col.attributes.removeNamedItem("hidden")
 
             const line_id = document.getElementById("line_id")
             line_id.setAttribute("value", profile.sub)
